@@ -5,8 +5,8 @@
 
 pkgname=fakeroot-tcp
 _pkgname=fakeroot
-pkgver=1.24
-pkgrel=2
+pkgver=1.33
+pkgrel=1
 pkgdesc='Tool for simulating superuser privileges,with tcp ipc'
 arch=('i686' 'x86_64' 'armv7h' 'aarch64')
 license=('GPL')
@@ -16,14 +16,11 @@ depends=('glibc' 'filesystem' 'sed' 'util-linux' 'sh')
 makedepends=('po4a' 'automake')
 provides=("${_pkgname}=${pkgver}-${pkgrel}")
 conflicts=("${_pkgname}")
-source=(http://ftp.debian.org/debian/pool/main/f/$_pkgname/${_pkgname}_${pkgver}.orig.tar.gz
-        silence-dlerror.patch)
-md5sums=('964e5f438f1951e5a515dd54edd50fa6'
-         '5fba0b541b5af39d804265223fda525c')
+source=(http://ftp.debian.org/debian/pool/main/f/$_pkgname/${_pkgname}_${pkgver}.orig.tar.gz)
+md5sums=('90158414f613867fe4b71d83bb1d81a7')
 
 prepare() {
   cd $_pkgname-$pkgver
-  patch -p1 -i "$srcdir"/silence-dlerror.patch
 }
 
 build() {
